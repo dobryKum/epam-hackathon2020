@@ -13,6 +13,7 @@
 		1DA6D1CD24D56E78000C84D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DA6D1CC24D56E78000C84D1 /* Assets.xcassets */; };
 		1DA6D1D024D56E78000C84D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DA6D1CE24D56E78000C84D1 /* LaunchScreen.storyboard */; };
 		1DA6D1D324D56E78000C84D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA6D1D224D56E78000C84D1 /* main.m */; };
+		1DCD008D24D595C600BC4DB7 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD008C24D595C500BC4DB7 /* UserService.m */; };
 		CF07035D24D5775300ED2A30 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07035C24D5775300ED2A30 /* User.m */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,8 @@
 		1DA6D1CF24D56E78000C84D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DA6D1D124D56E78000C84D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DA6D1D224D56E78000C84D1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1DCD008B24D595C500BC4DB7 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
+		1DCD008C24D595C500BC4DB7 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		CF07035B24D5775300ED2A30 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		CF07035C24D5775300ED2A30 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +71,8 @@
 				1DA6D1C424D56E76000C84D1 /* SceneDelegate.m */,
 				1DA6D1C624D56E76000C84D1 /* ViewController.h */,
 				1DA6D1C724D56E76000C84D1 /* ViewController.m */,
+				1DCD008B24D595C500BC4DB7 /* UserService.h */,
+				1DCD008C24D595C500BC4DB7 /* UserService.m */,
 				CF07035E24D5775700ED2A30 /* User */,
 				1DA6D1CC24D56E78000C84D1 /* Assets.xcassets */,
 				1DA6D1CE24D56E78000C84D1 /* LaunchScreen.storyboard */,
@@ -159,6 +164,7 @@
 				1DA6D1C824D56E76000C84D1 /* ViewController.m in Sources */,
 				1DA6D1C224D56E76000C84D1 /* AppDelegate.m in Sources */,
 				1DA6D1D324D56E78000C84D1 /* main.m in Sources */,
+				1DCD008D24D595C600BC4DB7 /* UserService.m in Sources */,
 				1DA6D1C524D56E76000C84D1 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
