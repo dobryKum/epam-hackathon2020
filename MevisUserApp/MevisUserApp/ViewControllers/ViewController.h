@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class User;
+
 @interface ViewController : UIViewController
+
+@property (nonatomic, strong) User *user;
 
 @end
 

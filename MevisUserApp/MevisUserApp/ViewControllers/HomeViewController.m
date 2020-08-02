@@ -53,6 +53,9 @@
     [self.logoutButton setTitleColor: UIColor.whiteColor forState:UIControlStateNormal];
     [self.view addSubview:self.logoutButton];
 
+
+#pragma mark - Navigation
+
     [self.logoutButton addTarget:self
                          action:@selector(logoutButtonTapped:)
                forControlEvents:UIControlEventTouchUpInside];
