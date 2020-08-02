@@ -22,7 +22,12 @@
     [self.window setRootViewController:[ViewController new]];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin:) name:@"Auth.didLogin" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout:) name:@"Auth.didLogout" object:nil];
     [self.window makeKeyAndVisible];
+}
+
+- (void)userDidLogout: (NSNotification *) notification {
+    [self.window setRootViewController:[ViewController new]];
 }
 
 - (void)userDidLogin: (NSNotification *) notification {

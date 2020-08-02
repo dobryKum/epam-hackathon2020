@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LessonsViewController : UIViewController
+@interface LessonsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
