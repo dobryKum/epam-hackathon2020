@@ -1,5 +1,5 @@
 //
-//  UserService.h
+//  GetTokenOperation.h
 //  MevisUserApp
 //
 //  Created by Tsimafei Zykau on 8/1/20.
@@ -10,7 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserService : NSObject
+@interface GetTokenOperation : NSOperation
+
+@property (nonatomic, copy) void(^completion)(NSString *);
 
 @end
 

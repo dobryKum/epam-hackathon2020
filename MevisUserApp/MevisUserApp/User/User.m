@@ -12,13 +12,13 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        _userId = dictionary[@"id"];
+        _userId = [dictionary[@"id"] longValue];
         _name = dictionary[@"name"];
         _dob = dictionary[@"dob"];
-        _balance = dictionary[@"balance"];
-        NSDictionary *phoneArray = dictionary[@"phone"];
+        _balance = [dictionary[@"balance"] floatValue];
+        NSArray *phoneArray = dictionary[@"phone"];
         _phone = phoneArray.firstObject;
-        NSDictionary *emailArray = dictionary[@"email"];
+        NSArray *emailArray = dictionary[@"email"];
         _email = emailArray.firstObject;
     }
     return self;

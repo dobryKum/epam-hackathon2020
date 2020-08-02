@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "UserService.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) UserService *userService;
+@property (nonatomic, copy) NSString *userPhoneNumber;
 
 @end
 
@@ -17,7 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.grayColor;
+    self.userService = [[UserService alloc] init];
+    self.userPhoneNumber = @"+53-4-634-6546";
+    [self.userService getUserItemWithPhoneNumber:self.userPhoneNumber completion:^(User *user) {
+        
+    }];
 }
+
+
 
 
 @end

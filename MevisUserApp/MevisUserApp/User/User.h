@@ -12,11 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface User : NSObject
-@property(nonatomic, assign) NSInteger *userId;
+@property(nonatomic, assign) NSInteger userId;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, copy) NSDate *dob;
-@property(nonatomic, assign) float *balance;
-@property(nonatomic, assign) NSInteger *paidLessonCount;
+@property(nonatomic, assign) float balance;
+@property(nonatomic, assign) NSInteger paidLessonCount;
 @property(nonatomic, copy) NSString *phone;
 @property(nonatomic, copy) NSString *email;
 @property(nonatomic, assign) UIImage *avatar;
