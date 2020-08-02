@@ -19,6 +19,8 @@
 		1DA6D1D324D56E78000C84D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA6D1D224D56E78000C84D1 /* main.m */; };
 		1DCD008D24D595C600BC4DB7 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DCD008C24D595C500BC4DB7 /* UserService.m */; };
 		CF07035D24D5775300ED2A30 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07035C24D5775300ED2A30 /* User.m */; };
+		CF07036724D5BC4200ED2A30 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07036624D5BC4200ED2A30 /* HomeViewController.m */; };
+		CF07036A24D5BC5C00ED2A30 /* LessonsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF07036924D5BC5C00ED2A30 /* LessonsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,10 @@
 		1DCD008C24D595C500BC4DB7 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		CF07035B24D5775300ED2A30 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		CF07035C24D5775300ED2A30 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		CF07036524D5BC4200ED2A30 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CF07036624D5BC4200ED2A30 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CF07036824D5BC5C00ED2A30 /* LessonsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LessonsViewController.h; sourceTree = "<group>"; };
+		CF07036924D5BC5C00ED2A30 /* LessonsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LessonsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,10 @@
 				1DA6D1C724D56E76000C84D1 /* ViewController.m */,
 				1D35038D24D599D80067C847 /* Parser */,
 				1D35038924D598300067C847 /* Services */,
+				CF07036524D5BC4200ED2A30 /* HomeViewController.h */,
+				CF07036624D5BC4200ED2A30 /* HomeViewController.m */,
+				CF07036824D5BC5C00ED2A30 /* LessonsViewController.h */,
+				CF07036924D5BC5C00ED2A30 /* LessonsViewController.m */,
 				CF07035E24D5775700ED2A30 /* User */,
 				1DA6D1CC24D56E78000C84D1 /* Assets.xcassets */,
 				1DA6D1CE24D56E78000C84D1 /* LaunchScreen.storyboard */,
@@ -199,12 +209,14 @@
 				1D501F4D24D59C1200ED1617 /* GetTokenOperation.m in Sources */,
 				1D35038C24D599D00067C847 /* JSONParser.m in Sources */,
 				1D501F5324D67A7500ED1617 /* GetLessonsOperation.m in Sources */,
+				CF07036A24D5BC5C00ED2A30 /* LessonsViewController.m in Sources */,
 				CF07035D24D5775300ED2A30 /* User.m in Sources */,
 				1DA6D1C824D56E76000C84D1 /* ViewController.m in Sources */,
 				1D501F5024D5B62C00ED1617 /* GetUserOperation.m in Sources */,
 				1DA6D1C224D56E76000C84D1 /* AppDelegate.m in Sources */,
 				1DA6D1D324D56E78000C84D1 /* main.m in Sources */,
 				1DCD008D24D595C600BC4DB7 /* UserService.m in Sources */,
+				CF07036724D5BC4200ED2A30 /* HomeViewController.m in Sources */,
 				1DA6D1C524D56E76000C84D1 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

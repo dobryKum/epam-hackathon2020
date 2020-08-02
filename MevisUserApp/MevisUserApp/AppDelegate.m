@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "HomeViewController.h"
+#import "LessonsViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     return YES;
 }
 
@@ -37,5 +39,22 @@
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
 
+//- (void)rootViewController {
+//
+//    UIViewController *homeController = [HomeViewController new];
+//    UIViewController *lessonsController = [LessonsViewController new];
+//
+//    homeController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed: @"home"] tag: 0];
+//    lessonsController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed: @"list"] tag: 1];
+//
+//    UITabBarController *tabBarController = [UITabBarController new];
+//    tabBarController.viewControllers = @[homeController, lessonsController];
+//
+//    tabBarController.tabBar.barTintColor = UIColor.whiteColor;
+//    tabBarController.tabBar.tintColor = UIColor.blackColor;
+//    [tabBarController setSelectedIndex:0];
+//
+//    self.window.rootViewController = tabBarController;
+//}
 
 @end
