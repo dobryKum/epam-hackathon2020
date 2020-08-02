@@ -1,5 +1,5 @@
 //
-//  GetLessonsOperation.h
+//  GetCalendarOperation.h
 //  MevisUserApp
 //
 //  Created by Tsimafei Zykau on 8/2/20.
@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
+#import "Calendar.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class User, Lesson;
+@interface GetCalendarOperation : NSOperation
 
-@interface GetLessonsOperation : NSOperation
-
-@property (nonatomic, copy) void(^completion)(NSArray <Lesson *> *);
+@property (nonatomic, copy) void(^completion)(NSArray <Calendar *> *);
 
 - (instancetype)initWithToken:(NSString *)token andUser:(User *)user;
 

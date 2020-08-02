@@ -10,6 +10,8 @@
 #import "JSONParser.h"
 #import "GetTokenOperation.h"
 #import "GetUserOperation.h"
+#import "GetLessonsOperation.h"
+#import "GetCalendarOperation.h"
 
 @interface UserService ()
 
@@ -44,21 +46,25 @@
     }
     return _session;
 }
-//
-//- (void)getToken:(void (^)(NSString *))completion {
-//    GetTokenOperation *operation = [GetTokenOperation new];
-//    operation.completion = ^(NSString *token) {
-//        completion(token);
-//    };
-//    [self.queue addOperation:operation];
-//}
 
 - (void)getUserItemWithPhoneNumber:(NSString *)userPhoneNumber completion:(void (^)(User *))completion {
     GetTokenOperation *getTokenOperation = [GetTokenOperation new];
     getTokenOperation.completion = ^(NSString *token) {
-        GetUserOperation *getUserOperation = [[GetUserOperation alloc] initWithToken:token andUserPhoneNumber:userPhoneNumber];
+        [[NSUserDefaults standardUserDefaults] setObject:userPhoneNumber forKey:@"userLoginPhoneNumber"];
+        self.token = token;
+        GetUserOperation *getUserOperation = [[GetUserOperation alloc] initWithToken:self.token andUserPhoneNumber:userPhoneNumber];
         getUserOperation.completion = ^(User *user) {
-            completion(user);
+            GetLessonsOperation *getLessonsOperation = [[GetLessonsOperation alloc] initWithToken:self.token andUser:user];
+            getLessonsOperation.completion = ^(NSArray<Lesson *> *lessons) {
+                GetCalendarOperation *getCalendarOperation = [[GetCalendarOperation alloc] initWithToken:self.token andUser:user];
+                getCalendarOperation.completion = ^(NSArray<Calendar *> *calendar) {
+                    user.lessons = lessons;
+                    user.calendar = calendar;
+                    completion(user);
+                };
+                [self.queue addOperation:getCalendarOperation];
+            };
+            [self.queue addOperation:getLessonsOperation];
         };
         [self.queue addOperation:getUserOperation];
     };

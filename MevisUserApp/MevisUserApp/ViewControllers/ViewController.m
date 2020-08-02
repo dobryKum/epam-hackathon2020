@@ -33,12 +33,12 @@
     self.phoneTextField.backgroundColor = UIColor.whiteColor;
     self.phoneTextField.placeholder = @"Enter phone number";
     self.phoneTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-    self.phoneTextField.keyboardType = UIKeyboardTypeDefault;
+//    self.phoneTextField.keyboardType = UIKeyboardTypeDefault;
     self.phoneTextField.returnKeyType = UIReturnKeyDone;
     self.phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.phoneTextField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     self.phoneTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    self.phoneTextField.delegate = self;
+//    self.phoneTextField.delegate = self;
     [self.view addSubview:self.phoneTextField];
 
     self.phoneTextField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -75,7 +75,12 @@
 
 - (void)loginButtonTapped: (UIButton *)sender {
     NSLog(@"loginButtonTapped");
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Auth.didLogin" object:self];
+    [self.userService getUserItemWithPhoneNumber:@"+375(33)333-33-33" completion:^(User *user) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.user = user;
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"Auth.didLogin" object:self];
+        });
+    }];
 }
 
 

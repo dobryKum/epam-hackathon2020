@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Lesson.h"
+#import "Calendar.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JSONParser : NSObject
 
 - (void)parseUsers:(NSData *)data completion:(void (^)(User *))completion;
+- (void)parseLessons:(NSData *)data forUser:(User *)user completion:(void (^)(NSArray <Lesson *> *))completion;
+- (void)parseCalendar:(NSData *)data completion:(void (^)(NSArray <Calendar *> *))completion;
 
 @end
 

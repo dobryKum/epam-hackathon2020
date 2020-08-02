@@ -41,7 +41,8 @@
     NSData *httpBody = [NSJSONSerialization dataWithJSONObject:httpBodyKeysValues options:NSJSONWritingPrettyPrinted error:nil];
     request.HTTPBody = httpBody;
     
-    NSURLSessionTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURLSessionTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request
+                                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         [self.parser parseUsers:data completion:self.completion];
     }];
     [dataTask resume];

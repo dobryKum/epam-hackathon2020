@@ -19,6 +19,10 @@
     self.view.backgroundColor = UIColor.yellowColor;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 /*
 #pragma mark - Navigation
 

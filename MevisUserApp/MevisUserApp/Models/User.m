@@ -16,6 +16,8 @@
         _name = dictionary[@"name"];
         _dob = dictionary[@"dob"];
         _balance = [dictionary[@"balance"] floatValue];
+        _paidLessonCount = [dictionary[@"paid_count"] longValue];
+        _paidTillDate = dictionary[@"paid_till"];
         NSArray *phoneArray = dictionary[@"phone"];
         _phone = phoneArray.firstObject;
         NSArray *emailArray = dictionary[@"email"];
