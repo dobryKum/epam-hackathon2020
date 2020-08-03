@@ -10,12 +10,13 @@
 #import "UIColor+ColorPalette.h"
 #import "User.h"
 #import "InfoCell.h"
+#import "SceneDelegate.h"
 
 @interface HomeViewController ()
 
-//@property(nonatomic, strong) UIScrollView *homeScrollView;
 @property(nonatomic, strong) UIImageView *backgroundImage;
-//@property(nonatomic, strong) UIView *gradientView;
+@property(nonatomic, strong) UIView *gradientView2;
+@property(nonatomic, strong) UIImageView *userView;
 @property(nonatomic, strong) UIButton *logoutButton;
 @property(nonatomic, strong) UIImageView *userImage;
 @property(nonatomic, strong) UILabel *nameLabel;
@@ -32,7 +33,6 @@ static NSString *cellId = @"InfoCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setupScrollView];
     [self setupBackgroundImage];
     [self setupGradientView];
     [self setupUserImage];
@@ -44,17 +44,6 @@ static NSString *cellId = @"InfoCell";
     [self setupTableView];
 }
 
-//- (void)setupScrollView {
-//
-//    self.homeScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.layer.frame.size.width, self.view.layer.frame.size.height)];
-//    [self.homeScrollView setShowsVerticalScrollIndicator:YES];
-//    self.homeScrollView.scrollEnabled = YES;
-//    self.homeScrollView.backgroundColor = [UIColor blueColor];
-//    self.homeScrollView.contentSize = self.view.bounds.size;
-//    self.homeScrollView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.view addSubview:self.homeScrollView];
-//
-//}
 
 - (void)setupLogoutButton {
     self.logoutButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -79,7 +68,6 @@ static NSString *cellId = @"InfoCell";
 
 - (void)setupBackgroundImage {
     self.backgroundImage = [UIImageView new];
-//    self.backgroundImage = [[UIImageView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 300)];
     [self.backgroundImage setContentMode:UIViewContentModeScaleAspectFit];
     [self.backgroundImage sizeToFit];
     self.backgroundImage.backgroundColor = [UIColor greenColor];
@@ -96,7 +84,6 @@ static NSString *cellId = @"InfoCell";
 }
 - (void)setupGradientView {
     UIView *gradientView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 400)];
-//    UIView *gradientView = [UIView new];
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.startPoint = CGPointMake(0.0, 0.5);
     gradient.endPoint = CGPointMake(1.0, 0.5);
@@ -106,17 +93,7 @@ static NSString *cellId = @"InfoCell";
     [self.backgroundImage addSubview:gradientView];
     [self.backgroundImage bringSubviewToFront: gradientView];
 
-//    gradientView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [NSLayoutConstraint activateConstraints:@[
-//                  [gradientView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-//                  [gradientView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-//                  [gradientView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-//                  [gradientView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:300]
-//              ]];
-
-//    double y = 0.0 + self.view.;
-    UIView *gradientView2 = [[UIView alloc] initWithFrame: CGRectMake(0, 115, self.view.frame.size.width, 150)];
-//    UIView *gradientView2 = [UIView new];
+    UIView *gradientView2 = [[UIView alloc] initWithFrame: CGRectMake(0, 135, self.view.frame.size.width, 80)];
 
     gradientView2.backgroundColor = UIColor.clearColor;
     CAGradientLayer *gradient2 = [CAGradientLayer layer];
@@ -126,55 +103,66 @@ static NSString *cellId = @"InfoCell";
     gradient2.frame = gradientView2.frame;
     [gradientView2.layer insertSublayer:gradient2 atIndex:0];
     [self.backgroundImage addSubview:gradientView2];
-    [self.backgroundImage bringSubviewToFront: gradientView2];
-//    gradientView2.translatesAutoresizingMaskIntoConstraints = NO;
-//      [NSLayoutConstraint activateConstraints:@[
-//                  [gradientView2.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-//                  [gradientView2.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-//                  [gradientView2.heightAnchor constraintEqualToConstant:70],
-//                  [gradientView2.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor]
-//              ]];
+    [self.backgroundImage bringSubviewToFront:gradientView2];
+    gradientView2.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)setupUserImage {
-//    self.userImage = [UIImageView new];
-//    self.userImage.backgroundColor = [UIColor yellowColor];
-    self.userImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"user"]];
-//    self.userImage.backgroundColor = UIColor.whiteColor;
-//    [self.userImage setContentMode:UIViewContentModeScaleAspectFit];
-//    [self.userImage sizeToFit];
-    self.userImage.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview: self.userImage];
 
+    self.userView = [[UIImageView alloc] initWithImage: [UIImage imageNamed:@"person"]];
+    self.userView.image = [self.userView.image imageWithRenderingMode: UIImageRenderingModeAlwaysTemplate];
+    [self.userView setTintColor: UIColor.orangeColor];
+    self.userView.contentMode = UIViewContentModeCenter;
+    self.userView.tintColor = UIColor.orangeColor;
+    self.userView.backgroundColor = UIColor.lightSky;
+    self.userView.layer.cornerRadius = 100/2;
+    self.userView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview: self.userView];
     [NSLayoutConstraint activateConstraints:@[
-        [self.userImage.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:50],
-        [self.userImage.widthAnchor constraintEqualToConstant:100],
-        [self.userImage.heightAnchor constraintEqualToConstant:100],
-        [self.userImage.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor]
-          ]];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.userImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:50] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.userImage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.userImage attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:100] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.userImage attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0] setActive:YES];
+        [self.userView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:40],
+        [self.userView.widthAnchor constraintEqualToConstant:100],
+        [self.userView.heightAnchor constraintEqualToConstant:100],
+        [self.userView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor]
+    ]];
+
+    UIImageView *borderView = [UIImageView new];
+    borderView.layer.borderWidth = 2.0;
+    borderView.layer.cornerRadius = 120/2;
+    borderView.layer.borderColor = [[UIColor lightSky] CGColor];
+    borderView.clipsToBounds = true;
+    borderView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview: borderView];
+    [NSLayoutConstraint activateConstraints:@[
+        [borderView.centerYAnchor constraintEqualToAnchor:self.userView.centerYAnchor],
+        [borderView.widthAnchor constraintEqualToConstant:120],
+        [borderView.heightAnchor constraintEqualToConstant:120],
+        [borderView.centerXAnchor constraintEqualToAnchor:self.userView.centerXAnchor]
+    ]];
 }
 
 - (void)setupNameLabel {
 
     self.nameLabel = [UILabel new];
-    self.nameLabel.text = self.user.name;
-//    self.nameLabel.text = @"Some User Name";
-    self.nameLabel.font = [UIFont systemFontOfSize:34 weight:UIFontWeightLight];
+    self.nameLabel.text = @"Александр Петрович Александр";
+    self.nameLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightLight];
+    self.nameLabel.numberOfLines = 0;
+    [self.nameLabel sizeToFit];
+    CGRect titleLabelBounds = self.nameLabel.bounds;
+    titleLabelBounds.size.height = CGFLOAT_MAX;
+
+    CGRect minimumTextRect = [self.nameLabel textRectForBounds:titleLabelBounds limitedToNumberOfLines:2];
+    CGFloat titleLabelHeightDelta = minimumTextRect.size.height - self.nameLabel.frame.size.height;
+    CGRect titleFrame = self.nameLabel.frame;
+    titleFrame.size.height += titleLabelHeightDelta;
+    self.nameLabel.frame = titleFrame;
+
     self.nameLabel.textColor = [UIColor whiteColor];
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview: self.nameLabel];
 
 
-        [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.userImage attribute:NSLayoutAttributeBottom multiplier:1 constant:10] setActive:YES];
+        [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.userView attribute:NSLayoutAttributeBottom multiplier:1 constant:20] setActive:YES];
 
         [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40] setActive:YES];
 
@@ -262,13 +250,6 @@ static NSString *cellId = @"InfoCell";
         [self.infoTableView.topAnchor constraintEqualToAnchor:self.backgroundImage.bottomAnchor],
         [self.infoTableView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]
     ]];
-//    [[NSLayoutConstraint constraintWithItem:self.infoTableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.backgroundImage attribute:NSLayoutAttributeBottom multiplier:1 constant:0] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.infoTableView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem: self.view.layer. attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.infoTableView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.view.frame.size.width] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.infoTableView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0] setActive:YES];
 
     [self.infoTableView registerNib:[UINib nibWithNibName:@"InfoCell" bundle: nil] forCellReuseIdentifier: cellId];
 }

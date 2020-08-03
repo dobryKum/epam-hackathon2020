@@ -36,11 +36,9 @@
 
 - (void)setupBackgroundView {
     self.userService = [UserService new];
-//    self.backgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.layer.frame.size.width, self.view.layer.frame.size.height)];
     self.backgroundView = [UIImageView new];
     self.backgroundView.image = [UIImage imageNamed:@"backgroundView"];
     [self.backgroundView setContentMode:UIViewContentModeScaleToFill];
-//    [self.backgroundView sizeToFit];
     self.backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
 
     [self.view addSubview: self.backgroundView];
@@ -54,9 +52,7 @@
 
 - (void)setupLogoView {
     self.logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo1"]];
-//    self.logoView.backgroundColor = UIColor.whiteColor;
     [self.logoView setContentMode:UIViewContentModeScaleAspectFit];
-//    [self.logoView sizeToFit];
     [self.view addSubview: self.logoView];
 
     self.logoView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -92,9 +88,6 @@
 
 - (void)setupTextField {
     self.phoneTextField = [UITextField new];
-//
-//    UIView *hideKeyboardView = [[UIView alloc]init];
-//    self.phoneTextField.inputView = hideKeyboardView;
 
     self.phoneTextField.backgroundColor = UIColor.whiteColor;
     self.phoneTextField.placeholder = @"+375(_)";
@@ -103,30 +96,15 @@
     self.phoneTextField.delegate = self;
     self.phoneTextField.textContentType = UITextContentTypeTelephoneNumber;
 
-//    self.phoneTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-//    self.phoneTextField.keyboardType = UIKeyboardTypeDefault;
     self.phoneTextField.returnKeyType = UIReturnKeyDone;
     self.phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.phoneTextField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     self.phoneTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 
-
-//    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 200, 300, 40)];
     self.phoneTextField.borderStyle = UITextBorderStyleNone;
     [self.phoneTextField.layer setMasksToBounds:YES];
     self.phoneTextField.layer.cornerRadius = 20;
-//    textField.font = [UIFont systemFontOfSize:15];
-//    textField.placeholder = @"enter text";
     self.phoneTextField.autocorrectionType = UITextAutocorrectionTypeNo;
-//    self.phoneTextField.keyboardType = UIKeyboardTypeDefault;
-//    textField.returnKeyType = UIReturnKeyDone;
-//    self.phoneTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
-//    self.phoneTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-//    textField.delegate = self;
-//    [self.view addSubview:textField];
-
-    
-
 
     [self.view addSubview:self.phoneTextField];
     [self.phoneTextField becomeFirstResponder];
@@ -142,7 +120,6 @@
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-//    [textField becomeFirstResponder];
     return YES;
 }
 
@@ -175,8 +152,6 @@
 }
 
 - (void)loginButtonTapped: (UIButton *)sender {
-//    NSLog(@"loginButtonTapped");
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"Auth.didLogin" object:self];
     NSLog(@"loginButtonTapped");
     [self.userService getUserItemWithPhoneNumber:@"+375(33)333-33-33" completion:^(User *user) {
         dispatch_async(dispatch_get_main_queue(), ^{

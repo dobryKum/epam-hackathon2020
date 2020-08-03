@@ -20,6 +20,10 @@
     return [UIColor convertColorWithHex: 0xE76A27];
 }
 
++ (UIColor *) lightSky {
+    return [UIColor convertColorWithHex: 0xcaebfc];
+}
+
 + (UIColor *) lightBlue {
     return [UIColor convertColorWithHex: 0x63C9FF];
 }
