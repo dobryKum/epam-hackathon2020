@@ -80,11 +80,7 @@ static NSString *cellId = @"InfoCell";
 - (void)setupBackgroundImage {
     self.backgroundImage = [UIImageView new];
 //    self.backgroundImage = [[UIImageView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 300)];
-<<<<<<< HEAD
-    self.backgroundImage.backgroundColor = [UIColor whiteColor];
 
-=======
->>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     [self.backgroundImage setContentMode:UIViewContentModeScaleAspectFit];
     [self.backgroundImage sizeToFit];
     self.backgroundImage.backgroundColor = [UIColor greenColor];
@@ -95,24 +91,6 @@ static NSString *cellId = @"InfoCell";
            [self.backgroundImage.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
            [self.backgroundImage.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
            [self.backgroundImage.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-<<<<<<< HEAD
-           [self.backgroundImage.bottomAnchor constraintEqualToAnchor:self.view.topAnchor constant:300]
-       ]];
-
-//    [[NSLayoutConstraint constraintWithItem:self.backgroundImage attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.backgroundImage attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:280] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.backgroundImage attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeWidth multiplier:1 constant:0] setActive:YES];
-//
-//    [[NSLayoutConstraint constraintWithItem:self.backgroundImage attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0] setActive:YES];
-}
-- (void)setupGradientView {
-    UIView *gradientView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 300)];
-    gradientView.backgroundColor = UIColor.clearColor;
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.locations = @[@0.0, @1.0];
-=======
            [self.backgroundImage.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:300]
        ]];
 
@@ -121,7 +99,6 @@ static NSString *cellId = @"InfoCell";
     UIView *gradientView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 400)];
 //    UIView *gradientView = [UIView new];
     CAGradientLayer *gradient = [CAGradientLayer layer];
->>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     gradient.startPoint = CGPointMake(0.0, 0.5);
     gradient.endPoint = CGPointMake(1.0, 0.5);
     gradient.colors = [NSArray arrayWithObjects: (id)UIColor.lightBlue.CGColor, (id)UIColor.mediumBlue.CGColor, nil];
@@ -130,22 +107,6 @@ static NSString *cellId = @"InfoCell";
     [self.backgroundImage addSubview:gradientView];
     [self.backgroundImage bringSubviewToFront: gradientView];
 
-<<<<<<< HEAD
-//    double y = 110 + self.view.safeAreaInsets.top;
-    UIView *gradientView2 = [[UIView alloc] initWithFrame: CGRectMake(0, 110, self.view.frame.size.width, 100)];
-//    UIView *gradientView2 = [UIView new];
-    gradientView2.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[
-        //TODO: FIX
-//      [gradientView2.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-//      [gradientView2.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-//      [gradientView2.topAnchor constraintEqualToAnchor:self.backgroundImage.topAnchor constant:-150],
-//      [gradientView2.bottomAnchor constraintEqualToAnchor:self.backgroundImage.bottomAnchor]
-    ]];
-    gradientView2.backgroundColor = UIColor.clearColor;
-    CAGradientLayer *gradient2 = [CAGradientLayer layer];
-    //    gradient.locations = @[@0.0, @1.0];
-=======
 //    gradientView.translatesAutoresizingMaskIntoConstraints = NO;
 //    [NSLayoutConstraint activateConstraints:@[
 //                  [gradientView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
@@ -160,7 +121,6 @@ static NSString *cellId = @"InfoCell";
 
     gradientView2.backgroundColor = UIColor.clearColor;
     CAGradientLayer *gradient2 = [CAGradientLayer layer];
->>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     gradient2.startPoint = CGPointMake(0.0, 0.5);
     gradient2.endPoint = CGPointMake(1.0, 0.5);
     gradient2.colors = [NSArray arrayWithObjects: (id)UIColor.lightBlue.CGColor, (id)UIColor.mediumBlue2.CGColor, nil];
@@ -168,8 +128,7 @@ static NSString *cellId = @"InfoCell";
     [gradientView2.layer insertSublayer:gradient2 atIndex:0];
     [self.backgroundImage addSubview:gradientView2];
     [self.backgroundImage bringSubviewToFront: gradientView2];
-<<<<<<< HEAD
-=======
+    
 //    gradientView2.translatesAutoresizingMaskIntoConstraints = NO;
 //      [NSLayoutConstraint activateConstraints:@[
 //                  [gradientView2.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
@@ -177,7 +136,6 @@ static NSString *cellId = @"InfoCell";
 //                  [gradientView2.heightAnchor constraintEqualToConstant:70],
 //                  [gradientView2.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor]
 //              ]];
->>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
 }
 
 - (void)setupUserImage {
@@ -211,11 +169,7 @@ static NSString *cellId = @"InfoCell";
     self.nameLabel = [UILabel new];
     self.nameLabel.text = self.user.name;
 //    self.nameLabel.text = @"Some User Name";
-<<<<<<< HEAD
-    self.nameLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightLight];
-=======
     self.nameLabel.font = [UIFont systemFontOfSize:34 weight:UIFontWeightLight];
->>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     self.nameLabel.textColor = [UIColor whiteColor];
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -224,11 +178,7 @@ static NSString *cellId = @"InfoCell";
 
         [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.userImage attribute:NSLayoutAttributeBottom multiplier:1 constant:10] setActive:YES];
 
-<<<<<<< HEAD
-        [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20] setActive:YES];
-=======
         [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40] setActive:YES];
->>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
 
         [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.view.frame.size.width] setActive:YES];
 

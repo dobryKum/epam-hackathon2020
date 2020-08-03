@@ -8,14 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-<<<<<<< HEAD
 #import "Lesson.h"
 
 @class Calendar;
-=======
-
-@class Calendar, Lesson;
->>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
 
 NS_ASSUME_NONNULL_BEGIN
 
