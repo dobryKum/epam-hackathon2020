@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "SceneDelegate.h"
 #import "UserService.h"
+#import "User.h"
 
 @interface ViewController () 
 
@@ -16,6 +17,7 @@
 @property(nonatomic, strong) UIImageView *logoView;
 @property(nonatomic, strong) UILabel *infoLabel;
 @property(nonatomic, strong) UITextField *phoneTextField;
+@property(nonatomic, strong) UITextField *mobileTextField;
 @property(nonatomic, strong) UIButton *loginButton;
 
 @end
@@ -28,6 +30,7 @@
     self.view.userInteractionEnabled = YES;
     [self setupBackgroundView];
     [self setupLogoView];
+    [self setupInfoLabel];
     [self setupTextField];
     [self setupButton];
 }
@@ -64,6 +67,28 @@
     [[NSLayoutConstraint constraintWithItem:self.logoView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:200] setActive:YES];
 
     [[NSLayoutConstraint constraintWithItem:self.logoView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0] setActive:YES];
+}
+
+
+- (void)setupInfoLabel {
+
+    self.infoLabel = [UILabel new];
+    self.infoLabel.text = @"Введите номер телефона";
+    self.infoLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightSemibold];
+    self.infoLabel.textColor = UIColor.whiteColor;
+    self.infoLabel.textAlignment = NSTextAlignmentCenter;
+    self.infoLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview: self.infoLabel];
+
+
+        [[NSLayoutConstraint constraintWithItem:self.infoLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.logoView attribute:NSLayoutAttributeBottom multiplier:1 constant:50] setActive:YES];
+
+        [[NSLayoutConstraint constraintWithItem:self.infoLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40] setActive:YES];
+
+        [[NSLayoutConstraint constraintWithItem:self.infoLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.view.frame.size.width] setActive:YES];
+
+        [[NSLayoutConstraint constraintWithItem:self.infoLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0] setActive:YES];
+
 }
 
 - (void)setupTextField {
@@ -108,7 +133,7 @@
     [self.phoneTextField becomeFirstResponder];
 
     self.phoneTextField.translatesAutoresizingMaskIntoConstraints = NO;
-    [[NSLayoutConstraint constraintWithItem:self.phoneTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.logoView attribute:NSLayoutAttributeBottom multiplier:1 constant:40] setActive:YES];
+    [[NSLayoutConstraint constraintWithItem:self.phoneTextField attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.infoLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10] setActive:YES];
 
     [[NSLayoutConstraint constraintWithItem:self.phoneTextField attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40] setActive:YES];
 

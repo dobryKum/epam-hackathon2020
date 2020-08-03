@@ -80,8 +80,11 @@ static NSString *cellId = @"InfoCell";
 - (void)setupBackgroundImage {
     self.backgroundImage = [UIImageView new];
 //    self.backgroundImage = [[UIImageView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 300)];
+<<<<<<< HEAD
     self.backgroundImage.backgroundColor = [UIColor whiteColor];
 
+=======
+>>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     [self.backgroundImage setContentMode:UIViewContentModeScaleAspectFit];
     [self.backgroundImage sizeToFit];
     self.backgroundImage.backgroundColor = [UIColor greenColor];
@@ -92,6 +95,7 @@ static NSString *cellId = @"InfoCell";
            [self.backgroundImage.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
            [self.backgroundImage.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
            [self.backgroundImage.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+<<<<<<< HEAD
            [self.backgroundImage.bottomAnchor constraintEqualToAnchor:self.view.topAnchor constant:300]
        ]];
 
@@ -108,6 +112,16 @@ static NSString *cellId = @"InfoCell";
     gradientView.backgroundColor = UIColor.clearColor;
     CAGradientLayer *gradient = [CAGradientLayer layer];
 //    gradient.locations = @[@0.0, @1.0];
+=======
+           [self.backgroundImage.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:300]
+       ]];
+
+}
+- (void)setupGradientView {
+    UIView *gradientView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.frame.size.width, 400)];
+//    UIView *gradientView = [UIView new];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+>>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     gradient.startPoint = CGPointMake(0.0, 0.5);
     gradient.endPoint = CGPointMake(1.0, 0.5);
     gradient.colors = [NSArray arrayWithObjects: (id)UIColor.lightBlue.CGColor, (id)UIColor.mediumBlue.CGColor, nil];
@@ -116,6 +130,7 @@ static NSString *cellId = @"InfoCell";
     [self.backgroundImage addSubview:gradientView];
     [self.backgroundImage bringSubviewToFront: gradientView];
 
+<<<<<<< HEAD
 //    double y = 110 + self.view.safeAreaInsets.top;
     UIView *gradientView2 = [[UIView alloc] initWithFrame: CGRectMake(0, 110, self.view.frame.size.width, 100)];
 //    UIView *gradientView2 = [UIView new];
@@ -130,6 +145,22 @@ static NSString *cellId = @"InfoCell";
     gradientView2.backgroundColor = UIColor.clearColor;
     CAGradientLayer *gradient2 = [CAGradientLayer layer];
     //    gradient.locations = @[@0.0, @1.0];
+=======
+//    gradientView.translatesAutoresizingMaskIntoConstraints = NO;
+//    [NSLayoutConstraint activateConstraints:@[
+//                  [gradientView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+//                  [gradientView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+//                  [gradientView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+//                  [gradientView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:300]
+//              ]];
+
+//    double y = 0.0 + self.view.;
+    UIView *gradientView2 = [[UIView alloc] initWithFrame: CGRectMake(0, 115, self.view.frame.size.width, 150)];
+//    UIView *gradientView2 = [UIView new];
+
+    gradientView2.backgroundColor = UIColor.clearColor;
+    CAGradientLayer *gradient2 = [CAGradientLayer layer];
+>>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     gradient2.startPoint = CGPointMake(0.0, 0.5);
     gradient2.endPoint = CGPointMake(1.0, 0.5);
     gradient2.colors = [NSArray arrayWithObjects: (id)UIColor.lightBlue.CGColor, (id)UIColor.mediumBlue2.CGColor, nil];
@@ -137,6 +168,16 @@ static NSString *cellId = @"InfoCell";
     [gradientView2.layer insertSublayer:gradient2 atIndex:0];
     [self.backgroundImage addSubview:gradientView2];
     [self.backgroundImage bringSubviewToFront: gradientView2];
+<<<<<<< HEAD
+=======
+//    gradientView2.translatesAutoresizingMaskIntoConstraints = NO;
+//      [NSLayoutConstraint activateConstraints:@[
+//                  [gradientView2.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+//                  [gradientView2.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
+//                  [gradientView2.heightAnchor constraintEqualToConstant:70],
+//                  [gradientView2.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor]
+//              ]];
+>>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
 }
 
 - (void)setupUserImage {
@@ -170,7 +211,11 @@ static NSString *cellId = @"InfoCell";
     self.nameLabel = [UILabel new];
     self.nameLabel.text = self.user.name;
 //    self.nameLabel.text = @"Some User Name";
+<<<<<<< HEAD
     self.nameLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightLight];
+=======
+    self.nameLabel.font = [UIFont systemFontOfSize:34 weight:UIFontWeightLight];
+>>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
     self.nameLabel.textColor = [UIColor whiteColor];
     self.nameLabel.textAlignment = NSTextAlignmentCenter;
     self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -179,7 +224,11 @@ static NSString *cellId = @"InfoCell";
 
         [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.userImage attribute:NSLayoutAttributeBottom multiplier:1 constant:10] setActive:YES];
 
+<<<<<<< HEAD
         [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20] setActive:YES];
+=======
+        [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:40] setActive:YES];
+>>>>>>> 62a7817c0fc6a6b9c624e1ac6e44aa8b9d549cdb
 
         [[NSLayoutConstraint constraintWithItem:self.nameLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.view.frame.size.width] setActive:YES];
 
@@ -190,7 +239,7 @@ static NSString *cellId = @"InfoCell";
 - (void)setupDobLabel {
 
     self.dobLabel = [UILabel new];
-    self.dobLabel.text = @"26.04.1959";
+    self.dobLabel.text = [NSString stringWithFormat: @"%@", self.user.dob];
     self.dobLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightSemibold];
     self.dobLabel.textColor = UIColor.darkBlue;
     self.dobLabel.textAlignment = NSTextAlignmentCenter;
@@ -198,7 +247,8 @@ static NSString *cellId = @"InfoCell";
         [self.view addSubview: self.dobLabel];
 
 
-        [[NSLayoutConstraint constraintWithItem:self.dobLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:5] setActive:YES];
+
+        [[NSLayoutConstraint constraintWithItem:self.dobLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:3] setActive:YES];
 
         [[NSLayoutConstraint constraintWithItem:self.dobLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20] setActive:YES];
 
@@ -211,17 +261,17 @@ static NSString *cellId = @"InfoCell";
 - (void)setupBalanceNumberLabel {
 
     self.balanceNumberLabel = [UILabel new];
-    self.balanceNumberLabel.text = [NSString stringWithFormat:@"%ld", self.user.paidLessonCount];
-    self.balanceNumberLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightLight];
+    self.balanceNumberLabel.text = [NSString stringWithFormat:@"%ld", (long)self.user.paidLessonCount];
+    self.balanceNumberLabel.font = [UIFont systemFontOfSize:34 weight:UIFontWeightLight];
     self.balanceNumberLabel.textColor = [UIColor whiteColor];
     self.balanceNumberLabel.textAlignment = NSTextAlignmentCenter;
     self.balanceNumberLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview: self.balanceNumberLabel];
 
 
-        [[NSLayoutConstraint constraintWithItem:self.balanceNumberLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dobLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:20] setActive:YES];
+        [[NSLayoutConstraint constraintWithItem:self.balanceNumberLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dobLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:15] setActive:YES];
 
-        [[NSLayoutConstraint constraintWithItem:self.balanceNumberLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:20] setActive:YES];
+        [[NSLayoutConstraint constraintWithItem:self.balanceNumberLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:30] setActive:YES];
 
         [[NSLayoutConstraint constraintWithItem:self.balanceNumberLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:self.view.frame.size.width] setActive:YES];
 
@@ -262,7 +312,7 @@ static NSString *cellId = @"InfoCell";
     [NSLayoutConstraint activateConstraints:@[
         [self.infoTableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
         [self.infoTableView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
-        [self.infoTableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant: 280],
+        [self.infoTableView.topAnchor constraintEqualToAnchor:self.backgroundImage.bottomAnchor],
         [self.infoTableView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]
     ]];
 //    [[NSLayoutConstraint constraintWithItem:self.infoTableView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.backgroundImage attribute:NSLayoutAttributeBottom multiplier:1 constant:0] setActive:YES];
@@ -294,20 +344,8 @@ static NSString *cellId = @"InfoCell";
         cell.infoLabel.text = self.user.email;
     } else if (indexPath.row == 2) {
         cell.titleLabel.text = @"Баланс";
-        cell.infoLabel.text = [NSString stringWithFormat:@"%lf", self.user.balance];
+        cell.infoLabel.text = [NSString stringWithFormat:@"%.02f", self.user.balance];
     }
-
-//    switch (indexPath.row) {
-//    case 0:
-//        return [VOKLocalizedStrings morning];
-//    case 1:
-//        return [VOKLocalizedStrings afternoon];
-//    case 2:
-//        return [VOKLocalizedStrings evening];
-//    default:
-//        return nil;
-//    }
-
     return cell;
 }
 
