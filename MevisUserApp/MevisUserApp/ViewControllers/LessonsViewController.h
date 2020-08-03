@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  LessonsViewController.h
 //  MevisUserApp
 //
 //  Created by Лера on 8/1/20.
@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController
+@interface LessonsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) User *user;
 
 @end
 

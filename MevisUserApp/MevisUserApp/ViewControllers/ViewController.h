@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@class User;
+
+@interface ViewController : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, strong) User *user;
 
 @end
 

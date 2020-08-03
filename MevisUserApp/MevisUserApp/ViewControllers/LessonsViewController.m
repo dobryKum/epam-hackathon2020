@@ -31,7 +31,6 @@
 }
 
 - (void)setupMyLessonsLabel {
-
     self.myLessonsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 50, self.view.layer.frame.size.width, 50)];
     self.myLessonsLabel.text = @"Мои занятия";
     self.myLessonsLabel.backgroundColor = [UIColor whiteColor];
