@@ -10,6 +10,7 @@
 #import "User.h"
 #import "Calendar.h"
 #import "LessonCollectionViewCell.h"
+#import "UIColor+ColorPalette.h"
 
 @interface LessonsViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     NSInteger _counter;
@@ -27,6 +28,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     self.label = [UILabel new];
+    self.label.textColor = UIColor.blackColor;
+//    self.label.font = [UIFont systemFontOfSize:25];
     self.label.text = @"Мои занятия";
     _counter = 0;
     
@@ -77,7 +80,9 @@
         if (notPaidLessonsInHistory.count > -paidLessonInFuture) {
             break;
         }
-        [notPaidLessonsInHistory addObject:element.id];
+        if (![element.reasonId isKindOfClass:[NSNull class]]) {
+            [notPaidLessonsInHistory addObject:element.id];
+        }
     }
     
     typedef NS_ENUM(NSUInteger, LessonStatus) {
@@ -166,21 +171,52 @@
     }
     
     if (status == PLANNED) {
-        lessonCell.backgroundColor = UIColor.lightGrayColor;
+        lessonCell.backgroundColor = UIColor.lessonGrayText;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonGray;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonGray;
     } else if (status == PREPAID) {
-        lessonCell.backgroundColor = UIColor.greenColor;
+        lessonCell.backgroundColor = UIColor.lessonGreen;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonGreenText;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonGreenText;
+        lessonCell.lessonTypeImage.tintColor = UIColor.lessonGreenText;
     } else if (status == VISIT_PAID) {
-        lessonCell.backgroundColor = UIColor.greenColor;
+        lessonCell.backgroundColor = UIColor.lessonGreen;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonGreenText;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonGreenText;
+        lessonCell.lessonTypeImage.tintColor = UIColor.lessonGreenText;
+        lessonCell.lessonStatusImage.image = [UIImage systemImageNamed:@"checkmark"];
+        lessonCell.lessonStatusImage.tintColor = UIColor.lessonGreenText;
     } else if (status == VISIT_NOT_PAID) {
-        lessonCell.backgroundColor = UIColor.redColor;
+        lessonCell.backgroundColor = UIColor.lessonRed;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonRedText;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonRedText;
+        lessonCell.lessonTypeImage.tintColor = UIColor.lessonRedText;
+        lessonCell.lessonStatusImage.image = [UIImage systemImageNamed:@"xmark"];
+        lessonCell.lessonStatusImage.tintColor = UIColor.lessonRedText;
     } else if (status == MISSED_NOT_PAID) {
-        lessonCell.backgroundColor = UIColor.redColor;
+        lessonCell.backgroundColor = UIColor.lessonRed;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonRedText;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonRedText;
+        lessonCell.lessonStatusImage.image = [UIImage systemImageNamed:@"xmark"];
+        lessonCell.lessonStatusImage.tintColor = UIColor.lessonRedText;
     } else if (status == MISSED_FREE) {
-        lessonCell.backgroundColor = UIColor.greenColor;
+        lessonCell.backgroundColor = UIColor.lessonGreen;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonGreenText;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonGreenText;
+        lessonCell.lessonStatusImage.image = [UIImage systemImageNamed:@"checkmark"];
+        lessonCell.lessonStatusImage.tintColor = UIColor.lessonGreenText;
     } else if (status == MISSED_PAID) {
-        lessonCell.backgroundColor = UIColor.yellowColor;
+        lessonCell.backgroundColor = UIColor.lessonYellow;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonYellowText;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonYellowText;
+        lessonCell.lessonStatusImage.image = [UIImage systemImageNamed:@"minus.circle.fill"];
+        lessonCell.lessonStatusImage.tintColor = UIColor.lessonYellowText;
     } else if (status == FORGOT) {
-        lessonCell.backgroundColor = UIColor.lightGrayColor;
+        lessonCell.backgroundColor = UIColor.lessonGray;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.lessonGrayText;
+        lessonCell.weekDayDateLabel.textColor = UIColor.lessonGrayText;
+        lessonCell.lessonStatusImage.image = [UIImage systemImageNamed:@"questionmark"];
+        lessonCell.lessonStatusImage.tintColor = UIColor.lessonGrayText;
     } else if (status == CANCELED) {
         lessonCell.backgroundColor = UIColor.lightGrayColor;
         NSMutableAttributedString *str1 = [[NSMutableAttributedString alloc] initWithString:lessonCell.monthAndDayDateLabel.text];
@@ -189,6 +225,10 @@
         [str2 addAttribute:NSStrikethroughStyleAttributeName value:(NSNumber *)kCFBooleanTrue range:NSMakeRange(0, str2.length)];
         lessonCell.monthAndDayDateLabel.attributedText = str1;
         lessonCell.weekDayDateLabel.attributedText = str2;
+        lessonCell.monthAndDayDateLabel.textColor = UIColor.grayColor;
+        lessonCell.weekDayDateLabel.textColor = UIColor.grayColor;
+        lessonCell.lessonStatusImage.image = [UIImage systemImageNamed:@"minus.circle.fill"];
+        lessonCell.lessonStatusImage.tintColor = UIColor.lessonGrayText;
     }
     
     lessonCell.lessonTypeImage.image = lessonTypeIcon;

@@ -28,10 +28,15 @@
     self.backgroundColor = UIColor.whiteColor;
     self.layer.cornerRadius = 10;
     self.monthAndDayDateLabel = [UILabel new];
-//    self.monthAndDayDateLabel.text = @"test";
+    self.monthAndDayDateLabel.textColor = UIColor.blackColor;
+    
     self.weekDayDateLabel = [UILabel new];
+    self.weekDayDateLabel.textColor = UIColor.blackColor;
     self.lessonTypeImage = [UIImageView new];
+    self.lessonTypeImage.image = [self.lessonTypeImage.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     self.lessonStatusImage = [UIImageView new];
+    self.lessonStatusImage.image = [self.lessonStatusImage.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.lessonStatusImage.contentMode = UIViewContentModeScaleAspectFit;
 //    self.lessonStatusImage.image = [UIImage imageNamed:@"empty_flag"];
     
     self.monthAndDayDateLabel.translatesAutoresizingMaskIntoConstraints = NO;

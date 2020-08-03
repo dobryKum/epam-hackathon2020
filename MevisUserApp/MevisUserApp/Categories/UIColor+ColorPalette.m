@@ -36,4 +36,37 @@
     return [UIColor convertColorWithHex: 0x2F7092];
 }
 
++ (UIColor *) lessonRed {
+    return [UIColor convertColorWithHex: 0xF2DEDE];
+}
+
++ (UIColor *)lessonRedText {
+    return [UIColor convertColorWithHex: 0xeb5767];
+}
+
++ (UIColor *)lessonGreen {
+    return [UIColor convertColorWithHex: 0xdff0d9];
+}
+
++ (UIColor *)lessonGreenText {
+    return [UIColor convertColorWithHex: 0x28b294];
+}
+
++ (UIColor *)lessonYellow {
+    return [UIColor convertColorWithHex: 0xfcf8e4];
+}
+
++ (UIColor *)lessonYellowText {
+    return [UIColor convertColorWithHex: 0xfda428];
+}
+
++ (UIColor *)lessonGray {
+    return [UIColor convertColorWithHex: 0xf3f3f4];
+}
+
++ (UIColor *)lessonGrayText {
+    return [UIColor convertColorWithHex: 0x656565];
+}
+
+
 @end

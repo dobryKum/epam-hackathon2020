@@ -19,6 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *) mediumBlue2;
 + (UIColor *) darkBlue;
 
++ (UIColor *) lessonRed;
++ (UIColor *) lessonRedText;
++ (UIColor *) lessonYellow;
++ (UIColor *) lessonYellowText;
++ (UIColor *) lessonGreen;
++ (UIColor *) lessonGreenText;
++ (UIColor *) lessonGray;
++ (UIColor *) lessonGrayText;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

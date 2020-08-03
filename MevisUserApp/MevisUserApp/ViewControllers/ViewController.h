@@ -10,7 +10,7 @@
 
 @class User, UserService;
 
-@interface ViewController : UIViewController <UITextFieldDelegate>
+@interface ViewController : UIViewController
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) UserService *userService;
