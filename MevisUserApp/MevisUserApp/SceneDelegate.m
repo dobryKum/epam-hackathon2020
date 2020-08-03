@@ -17,6 +17,7 @@
 
 @property (nonatomic, strong) UserService *userService;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) ViewController *viewController;
 
 @end
 
@@ -26,6 +27,7 @@
     self.window = [[UIWindow alloc] initWithWindowScene:[[UIWindowScene alloc] initWithSession:session connectionOptions:connectionOptions]];
     self.window.backgroundColor = UIColor.whiteColor;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin:) name:@"Auth.didLogin" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout:) name:@"Auth.didLogout" object:nil];
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"userLoginPhoneNumber"]) {
         self.userService = [UserService new];
         [self.userService getUserItemWithPhoneNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"userLoginPhoneNumber"]
@@ -36,7 +38,8 @@
             });
         }];
     } else {
-        [self.window setRootViewController:[ViewController new]];
+        self.viewController = [ViewController new];
+        [self.window setRootViewController:self.viewController];
     }
     [self.window makeKeyAndVisible];
 }
@@ -45,19 +48,33 @@
     [self setupNewVC];
 }
 
+- (void)userDidLogout:(NSNotification *) notification {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userLoginPhoneNumber"];
+    self.viewController = [ViewController new];
+    [self.window setRootViewController:self.viewController];
+}
+
 - (void)setupNewVC {
     HomeViewController *homeController = [HomeViewController new];
     LessonsViewController *lessonsController = [LessonsViewController new];
-    homeController.user = self.user;
-    homeController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed: @"home"] tag: 0];
-    lessonsController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed: @"list"] tag: 1];
+    
+    if (self.viewController.user) {
+        homeController.user = self.viewController.user;
+        lessonsController.user = self.viewController.user;
+    } else {
+        homeController.user = self.user;
+        lessonsController.user = self.user;
+    }
+    
+    homeController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed:@"person"] tag: 0];
+    lessonsController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed:@"calendar"] tag: 1];
 
     UITabBarController *tabBarController = [UITabBarController new];
     tabBarController.viewControllers = @[homeController, lessonsController];
 
     tabBarController.tabBar.barTintColor = UIColor.whiteColor;
-    tabBarController.tabBar.tintColor = UIColor.blackColor;
-    [tabBarController setSelectedIndex:0];
+    tabBarController.tabBar.tintColor = UIColor.orangeColor;
+    [tabBarController setSelectedIndex:1];
 
     self.window.rootViewController = tabBarController;
 }

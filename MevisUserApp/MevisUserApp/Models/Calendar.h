@@ -10,8 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class Lesson;
-
 @interface Calendar : NSObject
 
 @property (nonatomic, copy) NSString *id;
@@ -19,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *statusId;
 @property (nonatomic, copy) NSString *teacher;
 @property (nonatomic, copy) NSString *subject;
-@property (nonatomic, copy) NSDate *date;
+@property (nonatomic, copy) NSString *date;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

@@ -36,7 +36,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd.MM.yyyy"];
     NSDate *currentDate = [NSDate date];
-    NSString *firstDate = [dateFormatter stringFromDate:[currentDate dateByAddingTimeInterval:-2592000]];
+    NSString *firstDate = [dateFormatter stringFromDate:[currentDate dateByAddingTimeInterval:-2851200]];
     NSString *secondDate = [dateFormatter stringFromDate:[currentDate dateByAddingTimeInterval:2592000]];
     NSArray<NSURLQueryItem *> *query = @[
         [NSURLQueryItem queryItemWithName:@"id" value:[NSString stringWithFormat:@"%ld", self.user.userId]],

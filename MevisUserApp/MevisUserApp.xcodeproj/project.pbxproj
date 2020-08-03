@@ -14,6 +14,12 @@
 		1D63C65B24D6AD3F00A58572 /* GetCalendarOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63C65A24D6AD3F00A58572 /* GetCalendarOperation.m */; };
 		1D63C65E24D6AD5E00A58572 /* Lesson.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63C65D24D6AD5E00A58572 /* Lesson.m */; };
 		1D63C66124D6AD6700A58572 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63C66024D6AD6700A58572 /* Calendar.m */; };
+		1D63C66B24D7507000A58572 /* LessonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63C66A24D7507000A58572 /* LessonCollectionViewCell.m */; };
+		1D63C67724D7BA2900A58572 /* UIColor+ColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63C67624D7BA2900A58572 /* UIColor+ColorPalette.m */; };
+		1D63C67B24D7BA7F00A58572 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D63C67824D7BA7F00A58572 /* InfoCell.xib */; };
+		1D63C67C24D7BA7F00A58572 /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63C67A24D7BA7F00A58572 /* InfoCell.m */; };
+		1D63C68024D7D58200A58572 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63C67E24D7D58200A58572 /* CollectionViewCell.m */; };
+		1D63C68124D7D58200A58572 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D63C67F24D7D58200A58572 /* CollectionViewCell.xib */; };
 		1DA6D1C224D56E76000C84D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA6D1C124D56E76000C84D1 /* AppDelegate.m */; };
 		1DA6D1C524D56E76000C84D1 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA6D1C424D56E76000C84D1 /* SceneDelegate.m */; };
 		1DA6D1C824D56E76000C84D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA6D1C724D56E76000C84D1 /* ViewController.m */; };
@@ -41,6 +47,16 @@
 		1D63C65D24D6AD5E00A58572 /* Lesson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Lesson.m; sourceTree = "<group>"; };
 		1D63C65F24D6AD6700A58572 /* Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
 		1D63C66024D6AD6700A58572 /* Calendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
+		1D63C66924D7507000A58572 /* LessonCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LessonCollectionViewCell.h; sourceTree = "<group>"; };
+		1D63C66A24D7507000A58572 /* LessonCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LessonCollectionViewCell.m; sourceTree = "<group>"; };
+		1D63C67524D7BA2900A58572 /* UIColor+ColorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorPalette.h"; sourceTree = "<group>"; };
+		1D63C67624D7BA2900A58572 /* UIColor+ColorPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorPalette.m"; sourceTree = "<group>"; };
+		1D63C67824D7BA7F00A58572 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		1D63C67924D7BA7F00A58572 /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = "<group>"; };
+		1D63C67A24D7BA7F00A58572 /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = "<group>"; };
+		1D63C67D24D7D58200A58572 /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		1D63C67E24D7D58200A58572 /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		1D63C67F24D7D58200A58572 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		1DA6D1BD24D56E76000C84D1 /* MevisUserApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MevisUserApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA6D1C024D56E76000C84D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1DA6D1C124D56E76000C84D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -112,6 +128,30 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		1D63C66524D74FF800A58572 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D63C66924D7507000A58572 /* LessonCollectionViewCell.h */,
+				1D63C66A24D7507000A58572 /* LessonCollectionViewCell.m */,
+				1D63C67924D7BA7F00A58572 /* InfoCell.h */,
+				1D63C67A24D7BA7F00A58572 /* InfoCell.m */,
+				1D63C67824D7BA7F00A58572 /* InfoCell.xib */,
+				1D63C67D24D7D58200A58572 /* CollectionViewCell.h */,
+				1D63C67E24D7D58200A58572 /* CollectionViewCell.m */,
+				1D63C67F24D7D58200A58572 /* CollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1D63C67124D7B97100A58572 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1D63C67524D7BA2900A58572 /* UIColor+ColorPalette.h */,
+				1D63C67624D7BA2900A58572 /* UIColor+ColorPalette.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		1DA6D1B424D56E76000C84D1 = {
 			isa = PBXGroup;
 			children = (
@@ -135,10 +175,12 @@
 				1DA6D1C124D56E76000C84D1 /* AppDelegate.m */,
 				1DA6D1C324D56E76000C84D1 /* SceneDelegate.h */,
 				1DA6D1C424D56E76000C84D1 /* SceneDelegate.m */,
+				1D63C67124D7B97100A58572 /* Categories */,
 				1D35038D24D599D80067C847 /* Parser */,
 				1D35038924D598300067C847 /* Services */,
 				1D501F5424D692CA00ED1617 /* ViewControllers */,
 				CF07035E24D5775700ED2A30 /* Models */,
+				1D63C66524D74FF800A58572 /* Views */,
 				1DA6D1CC24D56E78000C84D1 /* Assets.xcassets */,
 				1DA6D1CE24D56E78000C84D1 /* LaunchScreen.storyboard */,
 				1DA6D1D124D56E78000C84D1 /* Info.plist */,
@@ -218,6 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DA6D1D024D56E78000C84D1 /* LaunchScreen.storyboard in Resources */,
+				1D63C67B24D7BA7F00A58572 /* InfoCell.xib in Resources */,
+				1D63C68124D7D58200A58572 /* CollectionViewCell.xib in Resources */,
 				1DA6D1CD24D56E78000C84D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,15 +273,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D63C66B24D7507000A58572 /* LessonCollectionViewCell.m in Sources */,
 				1D501F4D24D59C1200ED1617 /* GetTokenOperation.m in Sources */,
 				1D35038C24D599D00067C847 /* JSONParser.m in Sources */,
 				1D63C65B24D6AD3F00A58572 /* GetCalendarOperation.m in Sources */,
 				1D63C65E24D6AD5E00A58572 /* Lesson.m in Sources */,
+				1D63C67724D7BA2900A58572 /* UIColor+ColorPalette.m in Sources */,
+				1D63C68024D7D58200A58572 /* CollectionViewCell.m in Sources */,
 				1D501F5324D67A7500ED1617 /* GetLessonsOperation.m in Sources */,
 				CF07036A24D5BC5C00ED2A30 /* LessonsViewController.m in Sources */,
 				CF07035D24D5775300ED2A30 /* User.m in Sources */,
 				1DA6D1C824D56E76000C84D1 /* ViewController.m in Sources */,
 				1D501F5024D5B62C00ED1617 /* GetUserOperation.m in Sources */,
+				1D63C67C24D7BA7F00A58572 /* InfoCell.m in Sources */,
 				1DA6D1C224D56E76000C84D1 /* AppDelegate.m in Sources */,
 				1DA6D1D324D56E78000C84D1 /* main.m in Sources */,
 				1DCD008D24D595C600BC4DB7 /* UserService.m in Sources */,

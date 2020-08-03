@@ -58,7 +58,7 @@
             getLessonsOperation.completion = ^(NSArray<Lesson *> *lessons) {
                 GetCalendarOperation *getCalendarOperation = [[GetCalendarOperation alloc] initWithToken:self.token andUser:user];
                 getCalendarOperation.completion = ^(NSArray<Calendar *> *calendar) {
-                    user.lessons = lessons;
+                    user.lessons = [[lessons reverseObjectEnumerator] allObjects];
                     user.calendar = calendar;
                     completion(user);
                 };
