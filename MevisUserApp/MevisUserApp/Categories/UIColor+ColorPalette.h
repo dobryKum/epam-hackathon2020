@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (UIColor *) convertColorWithHex: (int) hexValue;
 + (UIColor *) customOrange;
++ (UIColor *) lightSky;
 + (UIColor *) lightBlue;
 + (UIColor *) mediumBlue;
 + (UIColor *) mediumBlue2;

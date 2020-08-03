@@ -24,6 +24,10 @@
     return [UIColor convertColorWithHex: 0x63C9FF];
 }
 
++ (UIColor *) lightSky {
+    return [UIColor convertColorWithHex: 0xcaebfc];
+}
+
 + (UIColor *) mediumBlue {
     return [UIColor convertColorWithHex: 0x007ac1];
 }
