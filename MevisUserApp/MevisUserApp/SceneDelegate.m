@@ -8,52 +8,90 @@
 
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "HomeViewController.h"
+#import "LessonsViewController.h"
+#import "UserService.h"
+#import "User.h"
 
 @interface SceneDelegate ()
+
+@property (nonatomic, strong) UserService *userService;
+@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) ViewController *viewController;
 
 @end
 
 @implementation SceneDelegate
 
-
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    self.window = [[UIWindow alloc] initWithWindowScene:[[UIWindowScene alloc] initWithSession:session connectionOptions:connectionOptions]];
-    [self.window setRootViewController:[ViewController new]];
+    self.window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
+    self.window.backgroundColor = UIColor.whiteColor;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin:) name:@"Auth.didLogin" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogout:) name:@"Auth.didLogout" object:nil];
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"userLoginPhoneNumber"]) {
+        self.userService = [UserService new];
+        [self.userService getUserItemWithPhoneNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"userLoginPhoneNumber"]
+                                          completion:^(User *user) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.user = user;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"Auth.didLogin" object:self];
+            });
+        }];
+    } else {
+        self.viewController = [ViewController new];
+        [self.window setRootViewController:self.viewController];
+    }
     [self.window makeKeyAndVisible];
 }
 
+- (void)userDidLogin:(NSNotification *) notification {
+    [self setupNewVC];
+}
+
+- (void)userDidLogout:(NSNotification *) notification {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userLoginPhoneNumber"];
+    self.viewController = [ViewController new];
+    [self.window setRootViewController:self.viewController];
+}
+
+- (void)setupNewVC {
+    HomeViewController *homeController = [HomeViewController new];
+    LessonsViewController *lessonsController = [LessonsViewController new];
+    
+    if (self.viewController.user) {
+        homeController.user = self.viewController.user;
+        lessonsController.user = self.viewController.user;
+    } else {
+        homeController.user = self.user;
+        lessonsController.user = self.user;
+    }
+    
+    homeController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed:@"person"] tag: 0];
+    lessonsController.tabBarItem = [[UITabBarItem alloc] initWithTitle: nil image: [UIImage imageNamed:@"calendar"] tag: 1];
+
+    UITabBarController *tabBarController = [UITabBarController new];
+    tabBarController.viewControllers = @[homeController, lessonsController];
+
+    tabBarController.tabBar.barTintColor = UIColor.whiteColor;
+    tabBarController.tabBar.tintColor = UIColor.orangeColor;
+    [tabBarController setSelectedIndex:1];
+
+    self.window.rootViewController = tabBarController;
+}
 
 - (void)sceneDidDisconnect:(UIScene *)scene {
-    // Called as the scene is being released by the system.
-    // This occurs shortly after the scene enters the background, or when its session is discarded.
-    // Release any resources associated with this scene that can be re-created the next time the scene connects.
-    // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
 }
-
 
 - (void)sceneDidBecomeActive:(UIScene *)scene {
-    // Called when the scene has moved from an inactive state to an active state.
-    // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
 }
-
 
 - (void)sceneWillResignActive:(UIScene *)scene {
-    // Called when the scene will move from an active state to an inactive state.
-    // This may occur due to temporary interruptions (ex. an incoming phone call).
 }
-
 
 - (void)sceneWillEnterForeground:(UIScene *)scene {
-    // Called as the scene transitions from the background to the foreground.
-    // Use this method to undo the changes made on entering the background.
 }
-
 
 - (void)sceneDidEnterBackground:(UIScene *)scene {
-    // Called as the scene transitions from the foreground to the background.
-    // Use this method to save data, release shared resources, and store enough scene-specific state information
-    // to restore the scene back to its current state.
 }
-
 
 @end

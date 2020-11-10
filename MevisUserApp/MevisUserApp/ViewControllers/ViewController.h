@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class User, UserService;
+
 @interface ViewController : UIViewController
 
+@property (nonatomic, strong) User *user;
+@property (nonatomic, strong) UserService *userService;
 
 @end
 
